@@ -23,19 +23,22 @@ emojiLove(firstString: "ying", secondString: "yang") // prints "ying ❤️ yang
 //: ### Exercise 15
 //: The function `median` should take three `Int` parameters and return the `Int` value in the middle.
 func median(num1: Int, num2: Int, num3: Int) -> Int {
-    let maxNum = max(num1, num2, num3), minNum = min(num1, num2, num3)
-    if maxNum == minNum {
-        return minNum
-    } else {
-        if (num1 == maxNum && num2 == minNum) || (num2 == maxNum && num1 == minNum) {
-            return num3
-        } else if (num1 == maxNum && num3 == minNum) || (num3 == maxNum && num1 == minNum) {
-            return num2
-        } else if (num2 == maxNum && num3 == minNum) || (num3 == maxNum && num2 == minNum) {
-            return num1
-        }
-    }
-    return 0
+//    let maxNum = max(num1, num2, num3), minNum = min(num1, num2, num3)
+//    if maxNum == minNum {
+//        return minNum
+//    } else {
+//        if (num1 == maxNum && num2 == minNum) || (num2 == maxNum && num1 == minNum) {
+//            return num3
+//        } else if (num1 == maxNum && num3 == minNum) || (num3 == maxNum && num1 == minNum) {
+//            return num2
+//        } else if (num2 == maxNum && num3 == minNum) || (num3 == maxNum && num2 == minNum) {
+//            return num1
+//        }
+//    }
+//    return 0
+    return [num1, num2, num3].sorted()[1]
+    
+    // so we can use data types and functions not taught yet.
 }
 
 /* Example Function Call
@@ -71,11 +74,15 @@ median(num1: 2, num2: 2, num3: 1) // 2
  
  */
 func beginsWithVowel(_ testString: String) -> Bool /* define the return type */ {
+    
     if testString == "" {
         return false
     } else {
-        for letter in ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"] {
-            if String(testString.characters[testString.startIndex]) == letter {
+        // Converting the testString to uppercase would allow you to half the
+        // amount of elements in this array.
+        var upperString = testString.uppercased()
+        for letter in ["A", "E", "I", "O", "U"] {
+            if String(upperString.characters[upperString.startIndex]) == letter {
                 return true
             }
         }

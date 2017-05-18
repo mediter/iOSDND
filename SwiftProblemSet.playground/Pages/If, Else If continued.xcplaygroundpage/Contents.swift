@@ -24,7 +24,8 @@ var canFinishBike: Bool = true
 var canFinishRun: Bool = false
 
 func checkTrainingStatus(name: String, swim: Bool, bike: Bool, run: Bool) {
-    //TODO: Add your if, else-if statement here!
+    // It is a good practice to remove the TODO comments once the implementation
+    // is completed.
     if canFinishRun && canFinishBike && canFinishSwim {
         print("Athlete \(name) is ready for tiathlon training.")
     } else if canFinishRun || canFinishBike || canFinishSwim {

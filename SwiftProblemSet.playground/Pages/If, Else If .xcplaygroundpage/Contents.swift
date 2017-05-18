@@ -33,17 +33,25 @@ func release() {
     print("\(game) is now ready for sale.")
 }
 
+// A Magic Number is a hard-coded value that may change at a later stage,
+// but that can be therefore hard to update.
+
+// Improved
+
+let bugCountLimit = 10
+let minimumLevelCount = 5
+
 func checkForRelease(bugs: Int, hasMusic: Bool, levels: Int) {
-    if bugs < 10 && hasMusic && levels > 5 {
+    if bugs < bugCountLimit && hasMusic && levels > minimumLevelCount {
         release()
-    } else if bugs >= 10 || !hasMusic || levels <= 5 {
-        if bugs >= 10 {
+    } else if bugs >= bugCountLimit || !hasMusic || levels <= minimumLevelCount {
+        if bugs >= bugCountLimit {
             print("Fix some bugs, get the bug count below 10.")
         }
         if !hasMusic {
             print("Please add some music. Music makes games more enjoyable.")
         }
-        if levels <= 5 {
+        if levels <= minimumLevelCount {
             print("Design more levels.")
         }
     }
